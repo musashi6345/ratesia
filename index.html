@@ -1,1 +1,266 @@
-私のホームページ
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lil’Bro 公式サイト</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#a31621;      /* ロゴの筆文字の赤（推しカラーで変更される） */
+  --navy:#1b1a3d;        /* ロゴの月の濃紺 */
+  --star:#f5c518;        /* ロゴの星の黄色 */
+  --bg:#ffffff;          /* ロゴの背景の白 */
+  --panel:#faf6f5;
+  --line:#e8dcdc;
+  --ink:#1a1418;
+  --muted:#6b6068;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.8}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--star);outline-offset:3px}
+button{font:inherit;cursor:pointer}
+
+header{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;
+  padding:12px 5vw;background:var(--navy);color:#fff;border-bottom:4px solid var(--accent)}
+nav{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:14px}
+nav a{text-decoration:none;color:#d9d6ee;padding:4px 0}
+nav a:hover{color:var(--star)}
+.me{display:inline-flex;gap:8px;align-items:center;font-size:14px}
+.ghost{background:none;border:1px solid #6b6a94;color:#fff;border-radius:999px;padding:4px 12px;font-size:12px}
+
+main{max-width:980px;margin:0 auto;padding:0 5vw}
+.hero{text-align:center;padding:56px 0 44px}
+.hero img{width:min(420px,80vw);height:auto}
+.lead{font-family:var(--serif);font-size:clamp(17px,3.4vw,22px);margin:20px auto 0;max-width:30em}
+
+.next{margin:34px auto 0;max-width:540px;background:var(--navy);color:#fff;border-radius:12px;
+  padding:20px 26px;text-align:left;border-top:4px solid var(--accent)}
+.next small{color:#b9b6d6}
+.next .date{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--star)}
+.cd{display:flex;gap:18px;margin-top:6px;color:#b9b6d6;font-size:14px}
+.cd b{font-size:22px;color:#fff;font-variant-numeric:tabular-nums}
+
+section{padding:52px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:28px;margin:0 0 20px;display:flex;align-items:center;gap:12px;color:var(--accent)}
+h2::before{content:"★";color:var(--star);font-size:18px;text-shadow:0 0 0 var(--navy),0 1px 0 var(--navy)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{margin:0 0 4px;font-size:18px}
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.ava{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:10px}
+.role{color:var(--muted);font-size:13px}
+.card p{font-size:14px;margin:8px 0 0}
+ul.rules{padding-left:1.2em;margin:0}
+ul.rules li{margin:6px 0}
+
+.themebox{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:16px 20px;margin-bottom:24px}
+.sw{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}
+.sw button{width:34px;height:34px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.sw button[aria-pressed="true"]{box-shadow:0 0 0 3px var(--navy)}
+input[type=color]{width:38px;height:34px;border:0;background:none;padding:0}
+
+form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:16px}
+label{display:grid;gap:5px;font-size:14px;color:var(--muted)}
+input[type=text],select,textarea{font:inherit;background:#fff;color:var(--ink);border:1px solid #cdbfc2;border-radius:8px;padding:10px 12px;width:100%}
+.chk{display:flex;gap:10px;align-items:flex-start;color:var(--ink)}
+.login{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.xbtn{background:var(--navy);color:#fff;border:0;border-radius:8px;padding:10px 18px;font-weight:700}
+.primary{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:12px 28px;font-weight:700;font-size:16px}
+.primary:hover,.xbtn:hover{filter:brightness(1.12)}
+.primary:disabled{opacity:.45;cursor:not-allowed}
+.msg{padding:14px 18px;border-radius:10px;background:#fff7d6;border:1px solid var(--star);color:var(--ink)}
+#err{color:var(--accent);font-size:14px}
+
+footer{text-align:center;color:#b9b6d6;background:var(--navy);font-size:13px;padding:32px 5vw;border-top:4px solid var(--accent)}
+footer b{color:var(--star)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <nav aria-label="メニュー"><a href="#about">概要</a><a href="#guide">ガイドライン</a><a href="#cast">キャスト</a><a href="#apply">応募</a></nav>
+  <div id="who"></div>
+</header>
+
+<main>
+  <div class="hero">
+    <img src="logo.png" alt="Lil’Bro" width="288" height="132">
+    <p class="lead">夜のVRChatで、ちいさな“弟分”たちと過ごすひととき。</p>
+    <div class="next" aria-live="polite">
+      <small>次回開催</small>
+      <div class="date" id="ndate"></div>
+      <div class="cd" id="cd"></div>
+      <small id="nplace"></small>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>概要</h2>
+    <p>Lil’Broは、VRChat上で開催されるイベントです。キャストとのおしゃべりやパフォーマンスを、夜の空気のなかでゆっくり楽しめます。参加は事前応募制。応募時にあなたの「推し」と「推しカラー」を教えてください。</p>
+    <div class="grid2">
+      <div class="card"><h3>開催形式</h3><p id="fmt"></p></div>
+      <div class="card"><h3>参加方法</h3><p>Xで登録 → 応募フォーム送信 → 開催前日までにDMで参加案内をお送りします。</p></div>
+    </div>
+  </section>
+
+  <section id="guide">
+    <h2>ガイドライン</h2>
+    <ul class="rules">
+      <li>キャスト・参加者への誹謗中傷、迷惑行為、ハラスメントは禁止です。</li>
+      <li>スクリーンショットの撮影はキャストと周囲の方に一声かけてから。無断の録画・配信は禁止です。</li>
+      <li>他の参加者のアバター・ワールドを尊重し、ミュートや距離感の希望には従ってください。</li>
+      <li>スタッフの案内に従えない場合、退出をお願いすることがあります。</li>
+      <li>入退場は自由です。体調を最優先に、無理せずお楽しみください。</li>
+    </ul>
+  </section>
+
+  <section id="cast">
+    <h2>キャスト紹介</h2>
+    <div class="cast" id="castlist"></div>
+  </section>
+
+  <section id="apply">
+    <h2>応募</h2>
+    <div class="themebox">
+      <strong>サイトを推しカラーにする</strong>
+      <div class="sw" id="sw" role="group" aria-label="推しカラー"></div>
+    </div>
+    <div id="applyArea"></div>
+  </section>
+</main>
+
+<footer><b>★</b> © Lil’Bro — VRChat Event 公式サイト <b>★</b></footer>
+
+<script>
+/* ===== 編集用データ（ここを書き換えて更新） ===== */
+const NEXT_EVENT = {
+  at: "2026-10-31T21:00:00+09:00",
+  place: "VRChat：ワールド名（後日発表）",
+  fmt: "毎回テーマを変えて開催／約2時間／Public招待制インスタンス"
+};
+const CAST = [
+  {name:"キャストA", role:"ホスト",       color:"#a31621", text:"イベントの司会を担当。夜更かし仲間を全力で歓迎します。"},
+  {name:"キャストB", role:"パフォーマー", color:"#3b5bdb", text:"歌とダンスで場を盛り上げます。"},
+  {name:"キャストC", role:"バーテンダー", color:"#c98f00", text:"ゆったり話したい人はぜひカウンターへ。"},
+  {name:"キャストD", role:"DJ",           color:"#7b3fbf", text:"夜に似合う音をセレクトします。"}
+];
+const PRESETS = [["#a31621","ロゴの赤"],["#e64980","ピンク"],["#3b5bdb","ブルー"],["#12b886","グリーン"],["#f08c00","オレンジ"],["#7b3fbf","パープル"],["#1b1a3d","ロゴの濃紺"]];
+
+/* 応募の送信先（GitHub Pagesにはサーバーがないため外部フォームを使う）
+   例：Formspree の "https://formspree.io/f/xxxxxxxx" を入れる。空なら送信されず端末内保存のみ */
+const FORM_ENDPOINT = "";
+/* ================================================ */
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ls = {
+  get(k){ try{ return localStorage.getItem(k) }catch(e){ return null } },
+  set(k,v){ try{ localStorage.setItem(k,v) }catch(e){} }
+};
+
+/* 推しカラーでサイトの色を変更 */
+const root = document.documentElement;
+let accent = ls.get("lb_accent") || "#a31621";
+function setAccent(c){
+  accent = c; root.style.setProperty("--accent", c); ls.set("lb_accent", c);
+  document.querySelectorAll("#sw button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
+  const p = $("#pick"); if(p) p.value = c;
+  const f = $("#ocolor"); if(f) f.value = c;
+}
+$("#sw").innerHTML = PRESETS.map(([c,n]) =>
+  `<button type="button" data-c="${c}" style="background:${c}" title="${n}" aria-label="${n}" aria-pressed="false"></button>`).join("")
+  + `<input type="color" id="pick" aria-label="好きな色を選ぶ" value="${accent}">`;
+$("#sw").onclick = e => { const b = e.target.closest("button"); if(b) setAccent(b.dataset.c) };
+$("#pick").oninput = e => setAccent(e.target.value);
+setAccent(accent);
+
+/* 次回開催 */
+const d = new Date(NEXT_EVENT.at);
+$("#ndate").textContent = d.toLocaleString("ja-JP",{year:"numeric",month:"long",day:"numeric",weekday:"short",hour:"2-digit",minute:"2-digit"}) + " 開演";
+$("#nplace").textContent = NEXT_EVENT.place;
+$("#fmt").textContent = NEXT_EVENT.fmt;
+function tick(){
+  const t = d - Date.now();
+  if(t <= 0){ $("#cd").textContent = "開催中／終了しました"; return }
+  const D = Math.floor(t/864e5), H = Math.floor(t%864e5/36e5), M = Math.floor(t%36e5/6e4);
+  $("#cd").innerHTML = `<span><b>${D}</b> 日</span><span><b>${H}</b> 時間</span><span><b>${M}</b> 分</span>`;
+}
+tick(); setInterval(tick, 30000);
+
+/* キャスト */
+$("#castlist").innerHTML = CAST.map(c =>
+  `<div class="card"><div class="ava" style="background:${c.color}">${esc(c.name.slice(0,1))}</div>
+   <h3>${esc(c.name)}</h3><div class="role">${esc(c.role)}</div><p>${esc(c.text)}</p></div>`).join("");
+
+/* Xで登録（簡易）＆ 応募 */
+let user; try{ user = JSON.parse(ls.get("lb_user") || "null") }catch(e){ user = null }
+function render(){
+  $("#who").innerHTML = user ? `<span class="me">@${esc(user.handle)} <button class="ghost" id="out" type="button">ログアウト</button></span>` : "";
+  if(user && $("#out")) $("#out").onclick = () => { user = null; ls.set("lb_user","null"); render() };
+  const A = $("#applyArea");
+
+  if(!user){
+    A.innerHTML = `<div class="card"><p>応募にはXアカウントでの登録が必要です。</p>
+      <form id="lf" style="border:0;padding:0"><div class="login">
+        <input type="text" id="xh" placeholder="@あなたのXのID" aria-label="XのID" style="max-width:260px" required>
+        <button class="xbtn" type="submit">𝕏 で登録・ログイン</button></div></form></div>`;
+    $("#lf").onsubmit = e => {
+      e.preventDefault();
+      const h = $("#xh").value.trim().replace(/^@/,"");
+      if(!/^\w{1,15}$/.test(h)){ alert("XのIDは英数字と_の15文字以内で入力してください"); return }
+      user = {handle:h}; ls.set("lb_user", JSON.stringify(user)); render();
+    };
+    return;
+  }
+
+  if(ls.get("lb_applied_" + user.handle)){
+    A.innerHTML = `<div class="msg">✔ 応募を受け付けました。開催前日までにXのDMでご案内します。</div>`;
+    return;
+  }
+
+  A.innerHTML = `<form id="af">
+    <label>VRChat表示名<input type="text" id="vrc" required maxlength="40" placeholder="VRChatでの名前"></label>
+    <label>推し（キャスト）<select id="oshi" required><option value="">選んでください</option>
+      ${CAST.map(c => `<option>${esc(c.name)}</option>`).join("")}<option>箱推し（全員）</option></select></label>
+    <label>推しカラー<span class="sw"><input type="color" id="ocolor" value="${accent}"></span></label>
+    <label>ひとこと（任意）<textarea id="note" rows="3" maxlength="300"></textarea></label>
+    <label class="chk"><input type="checkbox" id="agree" required> <span>ガイドラインを読み、内容に同意します。</span></label>
+    <label class="chk"><input type="checkbox" id="pic"> <span>イベント中の写真・映像に写り込むことを了承します（任意）</span></label>
+    <div><button class="primary" type="submit" id="send">応募する</button></div>
+    <div id="err" role="alert"></div></form>`;
+
+  $("#af").onsubmit = async e => {
+    e.preventDefault();
+    $("#send").disabled = true;
+    const data = {
+      x: user.handle, vrc: $("#vrc").value.trim(), oshi: $("#oshi").value,
+      color: $("#ocolor").value, note: $("#note").value.trim(),
+      photo: $("#pic").checked, at: new Date().toISOString()
+    };
+    try{
+      if(FORM_ENDPOINT){
+        const r = await fetch(FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"}, body:JSON.stringify(data)});
+        if(!r.ok) throw new Error("送信に失敗しました");
+      } else {
+        const a = JSON.parse(ls.get("lb_apps") || "[]"); a.push(data); ls.set("lb_apps", JSON.stringify(a));
+      }
+      ls.set("lb_applied_" + user.handle, "1");
+      render();
+    }catch(err){
+      $("#err").textContent = "送信できませんでした。時間をおいてもう一度お試しください。";
+      $("#send").disabled = false;
+    }
+  };
+}
+render();
+</script>
+</body>
+</html>
